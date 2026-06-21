@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/jeromeetienne/aipostgen.git"
   },
-  "license": "ISC",
-  "author": "",
+  "license": "MIT",
+  "author": "Jerome Etienne",
   "type": "module",
   "main": "index.js",
   "scripts": {
