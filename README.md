@@ -76,7 +76,9 @@ The quality bar is calibrated so that your own real posts pass it.
 .claude/
   skills/aipostgen/    the /aipostgen orchestrator skill
   agents/              the research and review agents
-src/                   the command-line tool (state machine, store, interface)
+src/
+  cli.ts               the command-line entry point
+  libs/                run-state schema, state machine, and store
 docs/ADRs/              architecture decision records
 posts/                 one directory per run (not tracked by git)
 ```
@@ -88,7 +90,7 @@ A run directory holds `state.json` (the run's phase and per-platform status), `r
 You do not normally call it directly — the skill does — but it is a plain command-line tool:
 
 ```sh
-npx tsx src/aipostgen_cli.ts <command> [options]
+npx tsx src/cli.ts <command> [options]
 ```
 
 Commands include `start`, `status`, `next`, `set-research`, `approve-angle`, `mark-drafted`, `record-review`, `approve-draft`, and `list`. The tool reads and writes `state.json` and reports the next action, which keeps the phase order, the rewrite loop, and the gates deterministic.

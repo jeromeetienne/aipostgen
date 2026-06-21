@@ -5,9 +5,9 @@ import {
 	PostTypeSchema,
 	type Platform,
 	type RunState,
-} from './run_state.js';
-import { RunStore } from './run_store.js';
-import { StateMachine } from './state_machine.js';
+} from './libs/run_state.js';
+import { RunStore } from './libs/run_store.js';
+import { StateMachine } from './libs/state_machine.js';
 
 function print(value: unknown): void {
 	console.log(JSON.stringify(value, null, 2));
