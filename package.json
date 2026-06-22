@@ -1,6 +1,6 @@
 {
   "name": "aipostgen",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Command-line tool that drives a social post run through its phases for X, Bluesky, and LinkedIn.",
   "keywords": [
     "social",
