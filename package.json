@@ -35,6 +35,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "prepack": "npm run build",
+    "publish:all": "npm run build && npm version patch && npm publish",
     "cli": "tsx src/cli.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
