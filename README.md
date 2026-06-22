@@ -90,8 +90,10 @@ A run directory holds `state.json` (the run's phase and per-platform status), `r
 You do not normally call it directly — the skill does — but it is a plain command-line tool:
 
 ```sh
-npx tsx src/cli.ts <command> [options]
+npm run --silent cli -- <command> [options]
 ```
+
+`npm run` resolves the script from the project root, so the command works from any working directory.
 
 Commands include `start`, `status`, `next`, `set-research`, `approve-angle`, `mark-drafted`, `record-review`, `approve-draft`, and `list`. The tool reads and writes `state.json` and reports the next action, which keeps the phase order, the rewrite loop, and the gates deterministic.
 
