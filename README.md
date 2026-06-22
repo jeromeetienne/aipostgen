@@ -78,8 +78,15 @@ The quality bar is calibrated so that your own real posts pass it.
   agents/              the research and review agents
 src/
   cli.ts               the command-line entry point
+  project_root.ts      locates the project root
+  commands/            the `install` command implementation
   libs/                run-state schema, state machine, and store
-docs/ADRs/              architecture decision records
+dotaipostgen_folder/   template copied to .aipostgen on install
+dotclaude_folder/      template copied to .claude on install
+tests/                 the test suite
+docs/
+  ADRs/                architecture decision records
+  blog/                the announcement post
 posts/                 one directory per run (not tracked by git)
 ```
 
