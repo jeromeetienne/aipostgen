@@ -22,3 +22,12 @@ Each record captures one decision and typically includes:
 ADRs are immutable: once accepted, a record is never edited. If a decision is later
 revisited, a new ADR is written that supersedes the old one, preserving the full
 history of how the architecture evolved over time.
+
+## Blog Posts
+
+The [`./blog`](blog/) directory contains long-form articles about this project.
+
+- [Your AI Should Draft. You Should Decide.](blog/announcing_aipostgen.md) — the
+  announcement of aipostgen: a drafting partner that researches, writes, and reviews
+  review-ready social posts for X, Bluesky, and LinkedIn, then deliberately stops short
+  of publishing so you keep the final say.
