@@ -65,8 +65,10 @@ Show the user the angle and the asset brief from `research_bundle.md`.
 
 ### assets
 Read the asset brief in `research_bundle.md`. If a visual is wanted, generate or
-collect it into `<dir>/assets/`, show it to the user, and let them keep it, regenerate
-it, or supply their own. When settled, or if no visual is wanted:
+collect it into `<dir>/assets/` as a PNG file (`.png`), show it to the user, and let
+them keep it, regenerate it, or supply their own. Whatever the source, the saved asset
+must be a `.png`; convert it if it arrives in another format. When settled, or if no
+visual is wanted:
 
 	npm run --silent cli -- after-assets --dir <dir>
 
