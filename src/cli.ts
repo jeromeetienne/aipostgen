@@ -10,6 +10,7 @@ import {
 } from './libs/run_state.js';
 import { RunStore } from './libs/run_store.js';
 import { StateMachine } from './libs/state_machine.js';
+import { InstallCommand } from './commands/install_command.js';
 
 class MainHelper {
 	static print(value: unknown): void {
@@ -30,6 +31,15 @@ class MainHelper {
 function main(): void {
 	const program = new Command();
 	program.name('aipostgen').description('Drives a social post run through its phases.');
+
+	program
+		.command('install')
+		.description("install the aipostgen skill and agents into a '.claude' directory")
+		.argument('[destFolder]', "the '.claude' directory to install into", '.')
+		.option('--force', 'overwrite existing Claude-asset files', false)
+		.action((destFolder: string, opts: { force: boolean }) =>
+			MainHelper.print(InstallCommand.install(destFolder, opts.force)),
+		);
 
 	program
 		.command('start')

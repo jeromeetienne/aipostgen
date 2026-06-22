@@ -101,7 +101,15 @@ When installed from npm, you can also run it through `npx` without a checkout:
 npx aipostgen <command> [options]
 ```
 
-Commands include `start`, `status`, `next`, `set-research`, `approve-angle`, `mark-drafted`, `record-review`, `approve-draft`, and `list`. The tool reads and writes `state.json` and reports the next action, which keeps the phase order, the rewrite loop, and the gates deterministic.
+To add the `/aipostgen` skill and the `research` / `review` agents to another project, point `install` at that project's `.claude` directory:
+
+```sh
+npx aipostgen install /path/to/project/.claude
+```
+
+It seeds starter `.aipostgen/` reference files next to `.claude/` as well, and never overwrites any you have already edited. Pass `--force` to refresh the skill and agents from a newer release; the reference files are still left untouched.
+
+Commands include `install`, `start`, `status`, `next`, `set-research`, `approve-angle`, `mark-drafted`, `record-review`, `approve-draft`, and `list`. The tool reads and writes `state.json` and reports the next action, which keeps the phase order, the rewrite loop, and the gates deterministic.
 
 ## Status
 
