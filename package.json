@@ -1,7 +1,15 @@
 {
   "name": "aipostgen",
   "version": "1.0.0",
-  "description": "",
+  "description": "Command-line tool that drives a social post run through its phases for X, Bluesky, and LinkedIn.",
+  "keywords": [
+    "social",
+    "post",
+    "generator",
+    "bluesky",
+    "linkedin",
+    "cli"
+  ],
   "homepage": "https://github.com/jeromeetienne/aipostgen#readme",
   "bugs": {
     "url": "https://github.com/jeromeetienne/aipostgen/issues"
@@ -13,8 +21,20 @@
   "license": "MIT",
   "author": "Jerome Etienne",
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/cli.js",
+  "types": "./dist/cli.d.ts",
+  "bin": {
+    "aipostgen": "./dist/cli.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "prepack": "npm run build",
     "cli": "tsx src/cli.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -95,6 +95,12 @@ npm run --silent cli -- <command> [options]
 
 `npm run` resolves the script from the project root, so the command works from any working directory.
 
+When installed from npm, you can also run it through `npx` without a checkout:
+
+```sh
+npx aipostgen <command> [options]
+```
+
 Commands include `start`, `status`, `next`, `set-research`, `approve-angle`, `mark-drafted`, `record-review`, `approve-draft`, and `list`. The tool reads and writes `state.json` and reports the next action, which keeps the phase order, the rewrite loop, and the gates deterministic.
 
 ## Status
