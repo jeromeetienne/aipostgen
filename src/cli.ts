@@ -56,19 +56,19 @@ function main(): void {
 	program
 		.command('status')
 		.description("print the run's current state")
-		.requiredOption('--dir <dir>')
+		.requiredOption('--dir <dir>', 'the run directory')
 		.action((opts: Record<string, string>) => MainHelper.print(RunStore.load(opts.dir)));
 
 	program
 		.command('next')
 		.description('print the next action the run is waiting on')
-		.requiredOption('--dir <dir>')
+		.requiredOption('--dir <dir>', 'the run directory')
 		.action((opts: Record<string, string>) => MainHelper.print(StateMachine.nextAction(RunStore.load(opts.dir))));
 
 	program
 		.command('set-research')
 		.description('record the post type from research and advance to the angle gate')
-		.requiredOption('--dir <dir>')
+		.requiredOption('--dir <dir>', 'the run directory')
 		.requiredOption('--post-type <type>', 'result, capability, opinion, or casual')
 		.action((opts: Record<string, string>) =>
 			MainHelper.transition(opts.dir, (state) => StateMachine.afterResearch(state, PostTypeSchema.parse(opts.postType))),
@@ -77,26 +77,26 @@ function main(): void {
 	program
 		.command('approve-angle')
 		.description('approve the angle and advance to the assets phase')
-		.requiredOption('--dir <dir>')
+		.requiredOption('--dir <dir>', 'the run directory')
 		.action((opts: Record<string, string>) => MainHelper.transition(opts.dir, (state) => StateMachine.approveAngle(state)));
 
 	program
 		.command('redirect-angle')
 		.description('reject the angle and send the run back to research')
-		.requiredOption('--dir <dir>')
+		.requiredOption('--dir <dir>', 'the run directory')
 		.action((opts: Record<string, string>) => MainHelper.transition(opts.dir, (state) => StateMachine.redirectAngle(state)));
 
 	program
 		.command('after-assets')
 		.description('mark assets complete and advance to the writing phase')
-		.requiredOption('--dir <dir>')
+		.requiredOption('--dir <dir>', 'the run directory')
 		.action((opts: Record<string, string>) => MainHelper.transition(opts.dir, (state) => StateMachine.afterAssets(state)));
 
 	program
 		.command('mark-drafted')
 		.description("mark a platform's draft written and ready for review")
-		.requiredOption('--dir <dir>')
-		.requiredOption('--platform <platform>')
+		.requiredOption('--dir <dir>', 'the run directory')
+		.requiredOption('--platform <platform>', 'the target platform')
 		.action((opts: Record<string, string>) =>
 			MainHelper.transition(opts.dir, (state) => StateMachine.markDrafted(state, PlatformSchema.parse(opts.platform))),
 		);
@@ -104,8 +104,8 @@ function main(): void {
 	program
 		.command('record-review')
 		.description("record a review verdict for a platform's draft")
-		.requiredOption('--dir <dir>')
-		.requiredOption('--platform <platform>')
+		.requiredOption('--dir <dir>', 'the run directory')
+		.requiredOption('--platform <platform>', 'the target platform')
 		.requiredOption('--verdict <verdict>', 'pass or revise')
 		.action((opts: Record<string, string>) =>
 			MainHelper.transition(opts.dir, (state) =>
@@ -116,8 +116,8 @@ function main(): void {
 	program
 		.command('approve-draft')
 		.description("approve a platform's draft as final")
-		.requiredOption('--dir <dir>')
-		.requiredOption('--platform <platform>')
+		.requiredOption('--dir <dir>', 'the run directory')
+		.requiredOption('--platform <platform>', 'the target platform')
 		.action((opts: Record<string, string>) =>
 			MainHelper.transition(opts.dir, (state) => StateMachine.approveDraft(state, PlatformSchema.parse(opts.platform))),
 		);
@@ -125,8 +125,8 @@ function main(): void {
 	program
 		.command('edit-draft')
 		.description("reopen an approved or reviewed draft for further editing")
-		.requiredOption('--dir <dir>')
-		.requiredOption('--platform <platform>')
+		.requiredOption('--dir <dir>', 'the run directory')
+		.requiredOption('--platform <platform>', 'the target platform')
 		.action((opts: Record<string, string>) =>
 			MainHelper.transition(opts.dir, (state) => StateMachine.editDraft(state, PlatformSchema.parse(opts.platform))),
 		);
@@ -134,8 +134,8 @@ function main(): void {
 	program
 		.command('rename')
 		.description("change the run's slug and move its directory")
-		.requiredOption('--dir <dir>')
-		.requiredOption('--slug <slug>')
+		.requiredOption('--dir <dir>', 'the run directory')
+		.requiredOption('--slug <slug>', 'the new slug')
 		.action((opts: Record<string, string>) => MainHelper.print({ dir: RunStore.rename(opts.dir, opts.slug) }));
 
 	program
