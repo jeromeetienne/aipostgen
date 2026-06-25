@@ -1,4 +1,4 @@
-# How I built aipostgen: the model writes, the code decides
+# How I Built aipostgen: The Model Writes, the Code Decides
 
 In the first post I described `aipostgen` from the outside. You give it a link, it
 shows you an angle and waits, it writes a draft for X, Bluesky, and LinkedIn, it
@@ -10,7 +10,11 @@ The short version is one sentence. The language model does the writing. Plain
 code does the deciding. Almost every design choice in `aipostgen` falls out of
 keeping those two jobs apart.
 
-## The shape
+> The complete project is open source: [repository](https://github.com/jeromeetienne/aipostgen)
+
+![The model writes, the code decides](02_the_model_writes_the_code_decides.png)
+
+## The Shape
 
 A run moves through four phases with two stops:
 
@@ -28,7 +32,7 @@ That is a state machine. There is an order, a loop, a cap on the loop, and two
 points where the run pauses for a human. Order-sensitive logic, and none of it
 creative.
 
-## Where I put the control flow
+## Where I Put the Control Flow
 
 Here is the choice I am most sure about. The control flow, the phase order, the
 rewrite loop, the two-pass cap, and the gates, lives in a small TypeScript
@@ -49,7 +53,7 @@ well past this one tool. Here I will just state it as the fact the rest of the
 build rests on. Deterministic work belongs in code. Creative work belongs in the
 model.
 
-## A manager and two contractors
+## A Manager and Two Contractors
 
 `aipostgen` runs on Claude Code, which gives me three building blocks: a skill, a
 subagent, and a command. I had to map the pipeline onto them, and the mapping was
@@ -74,7 +78,7 @@ So: manager in the middle holding the conversation, research sent off to read in
 isolation, review sent off to judge without having seen the work. Each piece is
 where it is for one concrete reason.
 
-## How it knows my voice
+## How It Knows My Voice
 
 A tool that writes in my voice has to be told what my voice is, and I did not want
 that buried in code. Three plain markdown files in a folder decide how posts come
@@ -90,7 +94,7 @@ is not my guess about what good writing is. It is tuned so that my own writing
 clears it, which means when it rejects a draft, the draft really did fall below
 the line I already write above.
 
-## What I would do differently
+## What I Would Do Differently
 
 Two things are not as clean as I would like. One of the libraries the runner
 depends on is used in the code but missing from the package file, the kind of gap
@@ -103,7 +107,7 @@ and it is the sort of detail worth knowing before you build on the same blocks.
 Neither changes the core, and I would rather name them than pretend the build was
 frictionless.
 
-## The one idea underneath
+## The One Idea Underneath
 
 Step back and the whole design is one decision applied at every level. The model
 writes. The code decides. The gates, the loop, the cap, the phase order, the

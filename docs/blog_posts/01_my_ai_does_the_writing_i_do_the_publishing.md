@@ -1,4 +1,4 @@
-# My AI does the writing. I do the publishing.
+# My AI Does the Writing. I Do the Publishing.
 
 I post the same idea to three places: X, Bluesky, and LinkedIn. Each one wants
 something different. X wants it short. LinkedIn wants context and a link in the
@@ -15,7 +15,11 @@ do. `aipostgen` never publishes. It stops at paste-ready text and hands the keys
 back to me. I want to explain why a writing tool that does not press the button
 is the version I actually trust.
 
-## What a run feels like
+> The complete project is open source: [repository](https://github.com/jeromeetienne/aipostgen)
+
+![aipostgen workflow](./01_my_ai_does_the_writing_i_do_the_publishing.png)
+
+## What a Run Feels Like
 
 I give it a link. A few seconds later it does not show me three drafts. It shows
 me one thing: the angle. A sentence or two saying, here is what I think this post
@@ -39,7 +43,7 @@ image to attach, and for LinkedIn the link to drop in the first comment.
 Two stops in the whole run. Approve the angle early, approve the drafts late.
 Everything between those two points is the machine doing the tedious part.
 
-## Why it stops twice
+## Why It Stops Twice
 
 I could have built the one-shot version. Paste a link, get three posts, done.
 It demos better. It also produces whatever the first attempt happens to produce,
@@ -63,7 +67,7 @@ stop to fix one word that was not mine, and I stopped second-guessing it. The
 friction is the product. It is the part that lets me trust the output enough to
 post it.
 
-## The part it refuses to do
+## The Part It Refuses to Do
 
 Here is the line I drew. aipostgen does the writing. It does not do the
 publishing. The last step, the actual copy and paste into each app, is mine.
@@ -79,7 +83,7 @@ the loop at exactly the moment that matters, the moment before something becomes
 public. I would rather press the button myself and own it than wake up to
 something my tool decided to say.
 
-## What I was really testing
+## What I Was Really Testing
 
 aipostgen is useful to me, and that was the point. But underneath, I was testing
 a way of thinking about these tools. The model is good at the open-ended part:

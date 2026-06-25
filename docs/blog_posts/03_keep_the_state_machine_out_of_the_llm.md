@@ -1,4 +1,4 @@
-# Keep the state machine out of the LLM
+# Keep the State Machine Out of the LLM
 
 This is the third post about aipostgen, the tool I built to write my social posts.
 The first post was the experience. The second was the build. This one is the
@@ -8,7 +8,11 @@ on a language model, not just this one.
 Here it is plainly. Do not let the model run your control flow. Put the state
 machine in code. Let the model do the writing.
 
-## The design that demos well and fails quietly
+> The complete project is open source: [repository](https://github.com/jeromeetienne/aipostgen)
+
+![State machine diagram](./03_keep_the_state_machine_out_of_the_llm.png)
+
+## The Design That Demos Well and Fails Quietly
 
 When you build something with an agent, the seductive shape is this: describe the
 goal, hand the model some tools, and let it decide what to do next. It looks like
@@ -29,7 +33,7 @@ predictable component the most order-sensitive job. A state machine is the one
 thing in your system that has to behave identically every single time. The model
 is the one thing in your system that, by design, does not.
 
-## Two kinds of work, two kinds of home
+## Two Kinds of Work, Two Kinds of Home
 
 The fix is to notice that an agent tool contains two completely different kinds of
 work, and to stop housing them in the same place.
@@ -51,7 +55,7 @@ rewrite loop has hit its cap, and whether a gate is waiting on me. The model is
 called to do one creative thing at a time and is never asked what happens next.
 The code is the guarantee. The model is the talent. Neither does the other's job.
 
-## What you get back
+## What You Get Back
 
 Putting the state machine in code buys three things that an all-model design
 cannot give you.
@@ -74,7 +78,7 @@ experience I described in the first post, the tool that stops and waits at exact
 the right two moments, exists only because those two moments are code and not
 suggestion.
 
-## When to reach for this, and when not
+## When to Reach for This, and When Not
 
 I do not want to oversell one shape as the answer to everything. The rule is about
 where guarantees matter.
@@ -90,7 +94,7 @@ and any reasonable path is fine, then letting the model choose its own steps is
 exactly right, and wrapping it in a rigid state machine would only get in the way. Most real tools are a mix. The skill is drawing the
 line in the right place, not refusing to draw it.
 
-## The one line to keep
+## The One Line to Keep
 
 If you take one thing from these three posts, take this. An agent tool is not one
 program. It is a reliable program with a creative function called inside it. Build
