@@ -2,15 +2,15 @@
 
 ## Blog
 
-The [`./blog`](blog/) directory contains a three-part series about aipostgen,
+The [`./blog_posts`](blog_posts/) directory contains a three-part series about `aipostgen`,
 written for hiring managers and users. The arc, synopses, and style spec are in
-[blog_series_plan.md](blog/blog_series_plan.md).
+[blog_series_plan.md](blog_posts/blog_series_plan.md).
 
-1. [My AI writes my social posts. It is not allowed to publish them.](blog/01_my_ai_writes_my_posts_but_cannot_publish_them.md)
+1. [My AI writes my social posts. It is not allowed to publish them.](blog_posts/01_my_ai_writes_my_posts_but_cannot_publish_them.md)
    — what the tool does, from the user's side.
-2. [How I built aipostgen: the model writes, the code decides.](blog/02_the_model_writes_the_code_decides.md)
+2. [How I built aipostgen: the model writes, the code decides.](blog_posts/02_the_model_writes_the_code_decides.md)
    — the architecture and the decisions behind it.
-3. [Keep the state machine out of the LLM.](blog/03_keep_the_state_machine_out_of_the_llm.md)
+3. [Keep the state machine out of the LLM.](blog_posts/03_keep_the_state_machine_out_of_the_llm.md)
    — the transferable lesson for any tool built on a language model.
 
 ## Architecture Decision Records
@@ -20,7 +20,7 @@ The [`./adr`](adr/) directory contains this project's **Architecture Decision Re
 An ADR is a short text document that captures a single significant architectural
 decision, along with its context and consequences. The format follows the approach
 described by Michael Nygard in
-[Documenting Architecture Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions).
+[Documenting Architecture Decisions](https://cognitect.com/blog_posts/2011/11/15/documenting-architecture-decisions).
 
 Each record captures one decision and typically includes:
 
