@@ -15,7 +15,7 @@ do. `aipostgen` never publishes. It stops at paste-ready text and hands the keys
 back to me. I want to explain why a writing tool that does not press the button
 is the version I actually trust.
 
-> The complete project is open source: [repository](https://github.com/jeromeetienne/aipostgen)
+> The complete project is open source: [github.com/jeromeetienne/aipostgen](https://github.com/jeromeetienne/aipostgen)
 
 ![aipostgen workflow](./01_my_ai_does_the_writing_i_do_the_publishing.png)
 

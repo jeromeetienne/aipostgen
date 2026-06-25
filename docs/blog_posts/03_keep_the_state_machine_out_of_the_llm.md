@@ -8,7 +8,7 @@ on a language model, not just this one.
 Here it is plainly. Do not let the model run your control flow. Put the state
 machine in code. Let the model do the writing.
 
-> The complete project is open source: [repository](https://github.com/jeromeetienne/aipostgen)
+> The complete project is open source: [github.com/jeromeetienne/aipostgen](https://github.com/jeromeetienne/aipostgen)
 
 ![State machine diagram](./03_keep_the_state_machine_out_of_the_llm.png)
 
