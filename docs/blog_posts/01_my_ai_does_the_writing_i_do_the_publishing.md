@@ -1,4 +1,4 @@
-# My AI writes my social posts. It is not allowed to publish them.
+# My AI does the writing. I do the publishing.
 
 I post the same idea to three places: X, Bluesky, and LinkedIn. Each one wants
 something different. X wants it short. LinkedIn wants context and a link in the
@@ -89,8 +89,8 @@ in plain code and in my hands, and I let the model do the writing.
 
 That split, what the machine decides versus what a human decides, is the whole
 design. In the next post I will open it up and show how it is built. For now the
-short version is the one I started with. My AI writes my posts. It is not allowed
-to publish them. That is the feature.
+short version is the one I started with. My AI does the writing. I do the
+publishing. That is the feature.
 
 If you want to try it or read the code, it is on GitHub:
 [github.com/jeromeetienne/aipostgen](https://github.com/jeromeetienne/aipostgen).

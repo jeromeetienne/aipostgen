@@ -6,7 +6,7 @@ The [`./blog_posts`](blog_posts/) directory contains a three-part series about `
 written for hiring managers and users. The arc, synopses, and style spec are in
 [blog_series_plan.md](blog_posts/blog_series_plan.md).
 
-1. [My AI writes my social posts. It is not allowed to publish them.](blog_posts/01_my_ai_writes_my_posts_but_cannot_publish_them.md)
+1. [My AI does the writing. I do the publishing.](blog_posts/01_my_ai_does_the_writing_i_do_the_publishing.md)
    — what the tool does, from the user's side.
 2. [How I built aipostgen: the model writes, the code decides.](blog_posts/02_the_model_writes_the_code_decides.md)
    — the architecture and the decisions behind it.
