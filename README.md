@@ -4,6 +4,10 @@ Generate review-ready social posts for **X**, **Bluesky**, and **LinkedIn** from
 
 aipostgen researches the material, writes a draft for each platform in your own voice, reviews each one against a quality bar, and stops at two human gates so you stay in control. It hands you paste-ready text; you do the final copy and paste.
 
+[![npm version](https://img.shields.io/npm/v/aipostgen.svg)](https://www.npmjs.com/package/aipostgen)
+[![downloads](https://img.shields.io/npm/dm/aipostgen.svg)](https://www.npmjs.com/package/aipostgen)
+[![License](https://img.shields.io/github/license/jeromeetienne/aipostgen)](LICENSE)
+
 ## How it works
 
 A run moves through four phases, with two points where it stops for your decision:
