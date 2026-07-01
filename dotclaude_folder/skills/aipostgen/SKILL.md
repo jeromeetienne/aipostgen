@@ -40,6 +40,18 @@ Keep the printed `dir`; every later command needs `--dir <dir>`.
 If the skill was invoked with no input, run `list` first. If a run is in progress,
 offer to continue it.
 
+## Auto mode
+
+If the user's input carries a phrase that asks the run to proceed without stopping —
+for example "full auto", "don't ask me questions", "no questions", or "just do it" —
+run the whole loop without pausing at either gate. Strip that phrase from the entry
+value before you choose the kind and slug, so it never becomes part of the material.
+
+In auto mode the two gates become non-interactive: at `await_angle` you approve the
+angle yourself, and at `await_approval` you approve every draft yourself, using the
+same tool commands. Everything else is unchanged — research, writing, the review pass,
+and its rewrite loop all still run. The steps below note what each gate does in auto mode.
+
 ## The loop
 
 Repeat until the action is `done`:
@@ -63,6 +75,9 @@ Show the user the angle and the asset brief from `research_bundle.md`.
   `rename --dir <dir> --slug <final_slug>` and keep the new dir it prints.
 - Redirect: tell the `research` agent what to change, then `redirect-angle --dir <dir>`.
 
+In auto mode, do not stop for approval: approve the angle yourself with
+`approve-angle --dir <dir>`, then rename as above.
+
 ### assets
 Read the asset brief in `research_bundle.md`. If a visual is wanted, generate or
 collect it into `<dir>/assets/` as a PNG file (`.png`), show it to the user, and let
@@ -71,6 +86,8 @@ must be a `.png`; convert it if it arrives in another format. When settled, or i
 visual is wanted:
 
 	npx aipostgen after-assets --dir <dir>
+
+In auto mode, keep the generated asset without pausing, then run `after-assets`.
 
 ### write [platforms]
 Read `style_guide.md` and `platform_specs.md`. For each platform listed, write the
@@ -94,6 +111,9 @@ Show the user the finished drafts in the paste-ready form below. For each:
 - Approved: `approve-draft --dir <dir> --platform <platform>`.
 - Edited: save the user's text to `<dir>/drafts/<platform>.md`, then
   `edit-draft --dir <dir> --platform <platform>`, which re-runs review on the edit.
+
+In auto mode, do not stop for approval: approve every platform yourself with
+`approve-draft --dir <dir> --platform <platform>`.
 
 ### done
 Produce the paste-ready output and stop.

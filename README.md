@@ -69,6 +69,17 @@ Each run is saved under `posts/<date>_<slug>/`.
 
 When the input is plain text, the run skips research and the angle gate and goes straight to writing — but the draft is still reviewed.
 
+### Auto mode: skip the gates
+
+The two human gates keep you in control, but once you trust a run you may not want to stop for them. Add a phrase such as **"full auto"** or **"don't ask me questions"** to your input and the run proceeds through both gates on its own: it confirms the angle, keeps the generated image, and approves the finished drafts without pausing.
+
+```
+/aipostgen https://example.com/the-article full auto
+/aipostgen /path/to/a/repository  write all three, don't ask me questions
+```
+
+Everything else is unchanged: research, writing, and the review pass with its rewrite loop all still run. Auto mode only removes the two stops for your approval, so you still get the same paste-ready output at the end — you just get it in one pass.
+
 ## Configure
 
 Three plain-markdown files in `.aipostgen/` decide how your posts come out. Edit them freely; your changes apply on the next run.
