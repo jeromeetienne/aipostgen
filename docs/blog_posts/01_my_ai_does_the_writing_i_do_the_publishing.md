@@ -17,7 +17,7 @@ is the version I actually trust.
 
 > The complete project is open source: [github.com/jeromeetienne/aipostgen](https://github.com/jeromeetienne/aipostgen)
 
-![aipostgen workflow](./01_my_ai_does_the_writing_i_do_the_publishing.png)
+![aipostgen workflow](./images/01_my_ai_does_the_writing_i_do_the_publishing.png)
 
 ## What a Run Feels Like
 

@@ -10,7 +10,7 @@ machine in code. Let the model do the writing.
 
 > The complete project is open source: [github.com/jeromeetienne/aipostgen](https://github.com/jeromeetienne/aipostgen)
 
-![State machine diagram](./03_keep_the_state_machine_out_of_the_llm.png)
+![State machine diagram](./images/03_keep_the_state_machine_out_of_the_llm.png)
 
 ## The Design That Demos Well and Fails Quietly
 

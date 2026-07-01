@@ -12,7 +12,7 @@ keeping those two jobs apart.
 
 > The complete project is open source: [github.com/jeromeetienne/aipostgen](https://github.com/jeromeetienne/aipostgen)
 
-![The model writes, the code decides](02_the_model_writes_the_code_decides.png)
+![The model writes, the code decides](./images/02_the_model_writes_the_code_decides.png)
 
 ## The Shape
 
