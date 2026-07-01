@@ -8,6 +8,14 @@ aipostgen researches the material, writes a draft for each platform in your own 
 [![downloads](https://img.shields.io/npm/dm/aipostgen.svg)](https://www.npmjs.com/package/aipostgen)
 [![License](https://img.shields.io/github/license/jeromeetienne/aipostgen)](LICENSE)
 
+## Blog posts
+
+A three-part series about aipostgen:
+
+1. [My AI does the writing. I do the publishing.](docs/blog_posts/01_my_ai_does_the_writing_i_do_the_publishing.md) — what the tool does, from the user's side.
+2. [How I built aipostgen: the model writes, the code decides.](docs/blog_posts/02_the_model_writes_the_code_decides.md) — the architecture and the decisions behind it.
+3. [Keep the state machine out of the LLM.](docs/blog_posts/03_keep_the_state_machine_out_of_the_llm.md) — the transferable lesson for any tool built on a language model.
+
 ## How it works
 
 A run moves through four phases, with two points where it stops for your decision:
@@ -21,7 +29,7 @@ research → ✋ confirm angle → assets → write → review ⤿ rewrite → �
 - **Review** judges each draft against the quality bar and loops a rewrite at most twice; platforms that pass are left untouched.
 - You approve the angle early, and the finished drafts at the end.
 
-The control flow lives in a small TypeScript command-line tool that owns the run state; the creative work is done by Claude. The design decisions are recorded in [docs/ADRs/](docs/ADRs/README.md).
+The control flow lives in a small TypeScript command-line tool that owns the run state; the creative work is done by Claude.
 
 ## Install
 
@@ -89,8 +97,7 @@ dotaipostgen_folder/   template copied to .aipostgen on install
 dotclaude_folder/      template copied to .claude on install
 tests/                 the test suite
 docs/
-  ADRs/                architecture decision records
-  blog/                the announcement post
+  blog_posts/          the blog post series
 posts/                 one directory per run (not tracked by git)
 ```
 
@@ -125,7 +132,7 @@ Commands include `install`, `start`, `status`, `next`, `set-research`, `approve-
 ## Status
 
 - **Working:** research, writing, review, both human gates, and paste-ready output.
-- **Deferred:** publishing. For now you copy and paste the output yourself. Posting to X and LinkedIn through a browser, and to Bluesky through its client, is planned (see ADR-0001).
+- **Deferred:** publishing. For now you copy and paste the output yourself. Posting to X and LinkedIn through a browser, and to Bluesky through its client, is planned.
 
 ## License
 
