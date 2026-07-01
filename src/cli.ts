@@ -2,9 +2,9 @@
 
 import { Command } from 'commander';
 import {
-	EntryKindSchema,
 	PlatformSchema,
 	PostTypeSchema,
+	type EntryMode,
 	type Platform,
 	type RunState,
 } from './libs/run_state.js';
@@ -19,6 +19,13 @@ class MainHelper {
 
 	static parsePlatforms(list: string): Platform[] {
 		return list.split(',').map((item) => PlatformSchema.parse(item.trim()));
+	}
+
+	static parseMode(fast: boolean, research: boolean): EntryMode {
+		if (fast === true && research === true) {
+			throw new Error('choose only one of --fast or --research');
+		}
+		return fast === true ? 'fast' : 'research';
 	}
 
 	static transition(dir: string, change: (state: RunState) => RunState): void {
@@ -43,14 +50,15 @@ function main(): void {
 
 	program
 		.command('start')
-		.description('create a new run from a url, repo, or text and write its initial state')
-		.requiredOption('--kind <kind>', 'url, repo, or text')
-		.requiredOption('--value <value>', 'the url, repo path, or text')
+		.description('create a new run from free-text input and write its initial state')
+		.requiredOption('--value <value>', 'the input: a url, a repository, or a few words')
 		.requiredOption('--slug <slug>', 'provisional slug')
+		.option('--fast', 'skip research and go straight to drafting', false)
+		.option('--research', 'run research before drafting (default)', false)
 		.option('--platforms <list>', 'comma-separated platforms', 'x,bsky,linkedin')
-		.action((opts: Record<string, string>) => {
-			const entry = { kind: EntryKindSchema.parse(opts.kind), value: opts.value };
-			MainHelper.print(RunStore.create(entry, MainHelper.parsePlatforms(opts.platforms), opts.slug, new Date()));
+		.action((opts: Record<string, unknown>) => {
+			const entry = { mode: MainHelper.parseMode(opts.fast === true, opts.research === true), value: opts.value as string };
+			MainHelper.print(RunStore.create(entry, MainHelper.parsePlatforms(opts.platforms as string), opts.slug as string, new Date()));
 		});
 
 	program

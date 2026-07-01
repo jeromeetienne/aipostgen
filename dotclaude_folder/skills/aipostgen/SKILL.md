@@ -27,13 +27,16 @@ writes `state.json` in the run directory and reports the next action.
 
 ## Start a run
 
-1. Read the user's input and choose the entry kind: a URL is `url`, a public
-   repository is `repo`, plain text is `text`.
+1. Pass the user's input through as the entry value. Choose whether it needs research:
+   use `--research` (the default) for a URL, a repository, or a topic to look into; use
+   `--fast` for a quick post from a few words that can skip straight to drafting.
 2. Choose a provisional slug in snake_case, from the title or the text.
 3. Default to all three platforms unless the user named a subset.
 4. Run:
 
-	npx aipostgen start --kind <kind> --value "<value>" --slug <slug> --platforms x,bsky,linkedin
+	npx aipostgen start --value "<value>" --research --slug <slug> --platforms x,bsky,linkedin
+
+   Swap `--research` for `--fast` to skip research.
 
 Keep the printed `dir`; every later command needs `--dir <dir>`.
 
@@ -127,6 +130,6 @@ For each platform, print one block the user can copy:
 
 ## Fast path
 
-When the entry is plain text, the tool starts at `write` — no research and no angle
-gate — but the draft still goes through review. This matches the decision that a quick
-post skips straight to drafting.
+With `--fast`, the tool starts at `write` — no research and no angle gate — but the
+draft still goes through review. Use it when the input is a few words that can skip
+straight to drafting. Otherwise use `--research`.

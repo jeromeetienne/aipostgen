@@ -16,7 +16,7 @@ export class RunStore {
 			entry,
 			platforms,
 			postType: null,
-			phase: entry.kind === 'text' ? 'write' : 'research',
+			phase: entry.mode === 'fast' ? 'write' : 'research',
 			angleApproved: false,
 			drafts: platforms.map((platform): DraftState => ({ platform, status: 'pending', reviewRounds: 0 })),
 			maxReviewRounds: 2,

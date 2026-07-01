@@ -3,8 +3,8 @@ import { z } from 'zod';
 export const PlatformSchema = z.enum(['x', 'bsky', 'linkedin']);
 export type Platform = z.infer<typeof PlatformSchema>;
 
-export const EntryKindSchema = z.enum(['url', 'repo', 'text']);
-export type EntryKind = z.infer<typeof EntryKindSchema>;
+export const EntryModeSchema = z.enum(['fast', 'research']);
+export type EntryMode = z.infer<typeof EntryModeSchema>;
 
 export const PostTypeSchema = z.enum(['result', 'capability', 'opinion', 'casual']);
 export type PostType = z.infer<typeof PostTypeSchema>;
@@ -30,7 +30,7 @@ export const DraftStatusSchema = z.enum([
 export type DraftStatus = z.infer<typeof DraftStatusSchema>;
 
 export const EntrySchema = z.object({
-	kind: EntryKindSchema,
+	mode: EntryModeSchema,
 	value: z.string().min(1),
 });
 export type Entry = z.infer<typeof EntrySchema>;

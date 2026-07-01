@@ -10,15 +10,18 @@ You gather everything one social post needs and write it to a research bundle.
 
 ## Input
 The spawn prompt gives you:
-- the entry kind (`url` or `repo`) and its value;
+- the entry value — free text that may be a URL, a repository, or a few words;
 - the run directory `dir`.
 
 ## Do
-1. Gather the material.
-   - **url** — fetch it, then pull out the facts, the angle worth posting, and any
+1. Read the entry value and decide how to gather the material from what it holds.
+   - **A URL** — fetch it, then pull out the facts, the angle worth posting, and any
      quote worth using.
-   - **repo** — read the repository: its README, its structure, and the key code. Find
-     the one postable angle — what it does, the result that matters, what is surprising.
+   - **A repository** (a repository URL, an `owner/name`, or a local path) — read the
+     repository: its README, its structure, and the key code. Find the one postable
+     angle — what it does, the result that matters, what is surprising.
+   - **A few words** — research the topic from the text, then pull out the same:
+     the facts, the angle worth posting, and any quote worth using.
 2. Decide the post type from what you found:
    - **result** — leads with a measured outcome (real numbers).
    - **capability** — introduces what a tool does.
